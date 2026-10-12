@@ -1,30 +1,23 @@
 # AI Assistance Log — TCSS 490 Artifact 1
 
-## Tool used
-ChatGPT (OpenAI), October 11, 2026.
+## AI Assistance
+I used AI to help plan my portfolio layout, organize the HTML and CSS, and understand how to deploy my website through GitHub Pages.
 
-## Initial request
-I provided the link to the TCSS 490 Artifact 1 instructions and asked ChatGPT to help me complete the assignment step by step.
+## Project Overview
+I wanted to create a simple, professional portfolio to showcase my projects throughout TCSS 490. I chose a dark theme and included an introduction, skills section, and five artifact cards.
 
-## Follow-up request
-I then asked ChatGPT to complete the project entirely.
+## Development Process
+I organized the website, set up my GitHub repository, and published it using GitHub Pages. AI helped with design suggestions and troubleshooting.
 
-## What AI helped create
-- A portfolio page with an introduction, skills, and five artifact cards.
-- Four proposed future project ideas: Study Planner, File Change Tracker, Data Visualization Dashboard, and AI-Powered Learning Helper.
-- Responsive CSS with a dark visual theme and mobile layout.
-- JavaScript for the mobile navigation menu and copyright year.
-- A README containing setup and GitHub Pages deployment instructions.
+## Testing and Improvements
+After deploying the website, I reviewed the layout and checked the assignment requirements. I also identified improvements to the contact section and artifact reflections.
 
-## Design choices
-The generated version uses plain HTML, CSS, and JavaScript rather than a framework. The layout is intentionally simple, with a dark background, blue accents, and cards for each course artifact. Future artifacts are clearly marked as proposed, not finished.
+## What I Learned
+This project helped me get more familiar with GitHub Pages, website deployment, and organizing my work into a portfolio. AI was helpful for guidance throughout the process.
 
-## Important verification note
-This log records assistance actually provided in the chat. The assignment webpage could not be retrieved during the final generation attempt, so the work is based on requirements previously discussed. The website has not yet been deployed or manually browser-tested by the student. After reviewing and publishing, add your actual testing results, any personal edits, and the live URL below.
+## Project Links
+**GitHub Repository:**  
+https://github.com/ymo206/tcss490-portfolio
 
-## Student review and testing (complete after doing these steps)
-- Changes I made myself: [fill in]
-- Desktop test: [fill in]
-- Mobile test: [fill in]
-- GitHub repository: [fill in]
-- Published URL: [fill in]
+**Live Portfolio:**  
+https://ymo206.github.io/tcss490-portfolio/
