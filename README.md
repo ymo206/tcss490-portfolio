@@ -5,40 +5,33 @@
 **Course:** TCSS 490 — Autumn 2026
 
 ## Overview
+This project is my personal portfolio for TCSS 490. It introduces my background, highlights my technical skills, and includes five artifact cards to organize my projects throughout the course.
 
-This repository contains my personal course portfolio. It introduces me, summarizes technologies I have worked with, and displays five artifact cards. Artifact 1 is the portfolio itself. Artifacts 2–5 describe project ideas that I may develop or revise during the course.
+Artifact 1 is the portfolio itself, while Artifacts 2–5 contain ideas for future projects.
 
 ## Technologies
+- HTML for the website structure
+- CSS for styling and responsive design
+- JavaScript for basic website interactions
+- GitHub Pages for hosting
 
-- HTML for the structure and content
-- CSS for layout, styling, and mobile responsiveness
-- JavaScript for the mobile navigation and copyright year
+## Features
+- Simple, modern dark-themed design
+- Personal introduction and skills section
+- Five artifact cards
+- Responsive layout
+- GitHub profile link
 
-## Files
+## Project Files
+- `index.html` — Website structure and content
+- `style.css` — Website styling
+- `script.js` — Website interactions
+- `AI-LOG.md` — AI assistance documentation
 
-- `index.html` — website content and sections
-- `style.css` — appearance and responsive layout
-- `script.js` — simple website interactions
-- `AI-LOG.md` — record of AI assistance
+## What I Learned
+This project helped me practice organizing a website, working with HTML and CSS, and deploying a project through GitHub Pages. It also gave me a starting point for showcasing future coursework and personal projects.
 
-## Run locally
+## Links
+**Live Website:** https://ymo206.github.io/tcss490-portfolio/
 
-Open `index.html` in a browser. No build step or dependencies are needed.
-
-## Publish with GitHub Pages
-
-1. Create a new public GitHub repository, such as `tcss490-portfolio`.
-2. Upload all files from this folder to the repository root.
-3. Commit the files to the `main` branch.
-4. Go to **Settings → Pages**.
-5. Under **Build and deployment**, choose **Deploy from a branch**.
-6. Select **main** and **/(root)**, then click **Save**.
-7. Wait for GitHub Pages to publish and open the resulting website URL.
-8. Submit that live website URL in Canvas if that is what your instructor requests.
-
-## Before submitting
-
-- [ ] Replace the generic GitHub button with your own GitHub profile URL.
-- [ ] Review the introduction, skills, and proposed artifacts to make sure they reflect your own goals.
-- [ ] Confirm the published site works on desktop and mobile.
-- [ ] Compare the final project against the full assignment instructions and rubric.
+**GitHub Repository:** https://github.com/ymo206/tcss490-portfolio
