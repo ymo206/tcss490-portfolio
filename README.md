@@ -32,6 +32,6 @@ Artifact 1 is the portfolio itself, while Artifacts 2–5 contain ideas for futu
 This project helped me practice organizing a website, working with HTML and CSS, and deploying a project through GitHub Pages. It also gave me a starting point for showcasing future coursework and personal projects.
 
 ## Links
-**Live Website:** https://ymo206.github.io/tcss490-portfolio/
+**Live Website:** https://ymo206.github.io/tcss490-portfolio/](https://ymo206.github.io/tcss490-portfolio/?v=2#contact
 
 **GitHub Repository:** https://github.com/ymo206/tcss490-portfolio
