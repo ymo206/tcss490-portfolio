@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,27 +184,46 @@
                     </article>
 
                     <!-- ARTIFACT 3 -->
-                    <article class="artifact-card">
+                    <article class="artifact-card featured">
                         <div class="card-top">
                             <span class="artifact-number">ARTIFACT 03</span>
-                            <span class="status planned">Proposed</span>
+                            <span class="status complete">Completed</span>
                         </div>
 
-                        <div class="card-symbol" aria-hidden="true">⌕</div>
+                        <div class="card-symbol" aria-hidden="true">↳</div>
 
-                        <h3>File Change Tracker</h3>
+                        <h3>To-Do List: Break Down with Claude</h3>
 
                         <p>
-                            I'd like to explore a tool that monitors selected files or folders
-                            and displays when changes happen.
+                            An extension of my Artifact 2 to-do list. A Break down button
+                            asks Claude to split a big task into smaller steps. I review
+                            the suggestions and choose which ones to add. A small Python
+                            helper runs Claude Code, and plain code checks
+                            every answer before I see it.
+                        </p>
+
+                        <p>
+                            The first real run failed with a blank error. I tracked it
+                            down by running Claude Code by hand: it wasn't logged in, and
+                            my helper was reading its error from the wrong place. Because
+                            Claude's job was kept small and the code checks everything
+                            around it, it was easy to tell whether a problem came from the
+                            model or from my code. I also learned to work around device
+                            limits by running everything in GitHub Codespaces.
                         </p>
 
                         <div class="tags">
-                            <span>Java</span>
-                            <span>File systems</span>
+                            <span>JavaScript</span>
+                            <span>Python</span>
+                            <span>Claude Code</span>
                         </div>
 
-                        <span class="card-foot">Project idea · Not built yet</span>
+                        <a class="card-link"
+                           href="https://github.com/ymo206/todo-list"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View GitHub Repository ↗
+                        </a>
                     </article>
 
                     <!-- ARTIFACT 4 -->
@@ -259,7 +277,7 @@
                 </div>
 
                 <p class="disclaimer">
-                    Artifacts 1 and 2 are completed. Artifacts 3–5 are initial ideas
+                    Artifacts 1–3 are completed. Artifacts 4 and 5 are initial ideas
                     and may change as the course progresses.
                 </p>
             </div>
