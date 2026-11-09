@@ -4,342 +4,675 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yusuf Mohamoud's TCSS 490 portfolio at the University of Washington Tacoma.">
-    <title>Yusuf Mohamoud | TCSS 490 Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <meta name="description" content="Yusuf Mohamoud's Computer Science portfolio at the University of Washington Tacoma.">
+    <title>Yusuf Mohamoud | Computer Science Portfolio</title>
+    <style>
+        :root {
+            --bg: #0b1120;
+            --surface: #111c31;
+            --surface-alt: #182640;
+            --text: #e8eef9;
+            --muted: #a7b7cd;
+            --accent: #64d8cb;
+            --border: #304057;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.65;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: rgba(11, 17, 32, 0.96);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            padding: 75px 0;
+        }
+
+        .hero {
+            padding: 100px 0 85px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.15;
+            margin: 12px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            margin: 15px 0 10px;
+        }
+
+        .lead {
+            color: var(--muted);
+            max-width: 720px;
+            font-size: 1.15rem;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 760px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 15px 10px 0 0;
+            border-radius: 8px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .skill {
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 8px;
+        }
+
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+        .artifact-card {
+            padding: 26px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+        }
+
+        .artifact-card.featured {
+            border-color: #315c63;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .artifact-number {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .status {
+            font-size: 0.8rem;
+            border-radius: 20px;
+            padding: 5px 10px;
+        }
+
+        .status.complete {
+            background: #173f3c;
+            color: #a3f4dc;
+        }
+
+        .status.planned {
+            background: #3a3344;
+            color: #dfc8ff;
+        }
+
+        .card-symbol {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-top: 20px;
+        }
+
+        .artifact-card p {
+            color: var(--muted);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .tags span {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 4px 9px;
+            font-size: 0.8rem;
+        }
+
+        .card-link {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card-foot {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            .artifact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <header class="site-header">
-        <nav class="nav container" aria-label="Main navigation">
-            <a class="logo" href="#home">YM<span>.</span></a>
+<header>
+    <div class="container">
+        <nav>
+            <a class="logo" href="#home">Yusuf Mohamoud</a>
 
-            <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">☰</button>
-
-            <div class="nav-links" id="nav-links">
+            <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#artifacts">Artifacts</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
-    </header>
+    </div>
+</header>
 
-    <main>
+<main>
 
-        <section id="home" class="hero container">
-            <p class="eyebrow">COMPUTER SCIENCE STUDENT · UW TACOMA</p>
-
-            <h1>Hi, I'm <span>Yusuf Mohamoud.</span></h1>
-
-            <p class="hero-text">
-                I enjoy building software, learning new technologies, and turning ideas into useful projects.
-                This is my portfolio for TCSS 490.
+    <!-- HOME -->
+    <section id="home" class="hero">
+        <div class="container">
+            <p class="eyebrow">
+                Computer Science Student | UW Tacoma
             </p>
 
-            <div class="hero-actions">
-                <a class="button primary" href="#artifacts">
-                    Explore my work <span aria-hidden="true">↗</span>
-                </a>
-                <a class="button secondary" href="#about">More about me</a>
-            </div>
+            <h1>Hi, I'm Yusuf Mohamoud.</h1>
 
-            <div class="hero-meta">
-                <span>Based in Washington</span>
-                <span class="dot"></span>
-                <span>University of Washington Tacoma</span>
-            </div>
-        </section>
+            <p class="lead">
+                I'm a senior pursuing a Bachelor of Arts in
+                Computer Science at the University of Washington
+                Tacoma. This portfolio highlights my projects,
+                technical skills, and what I've learned while
+                working on different software development projects.
+            </p>
 
-        <section id="about" class="section alt">
-            <div class="container section-grid">
-                <div>
-                    <p class="eyebrow">01 / ABOUT ME</p>
-                    <h2>A little about me.</h2>
-                </div>
+            <a class="button" href="#artifacts">
+                View My Projects
+            </a>
 
-                <div class="prose">
-                    <p>
-                        I'm a senior studying Computer Science at the University of Washington Tacoma.
-                        I like working on projects where I can apply what I've learned in class to something practical.
-                    </p>
-
-                    <p>
-                        I've worked with Java, Python, and web technologies, and I'm especially interested
-                        in software engineering and creating applications that solve everyday problems.
-                        In TCSS 490, I want to keep improving my development skills and document what I learn along the way.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <div class="container">
-                <p class="eyebrow">02 / SKILLS</p>
-                <h2>Technologies I've worked with.</h2>
-
-                <div class="skills-grid">
-                    <div class="skill-box">
-                        <h3>Languages</h3>
-                        <p>Java · Python · HTML · CSS · JavaScript</p>
-                    </div>
-
-                    <div class="skill-box">
-                        <h3>Tools</h3>
-                        <p>Git · GitHub · IntelliJ IDEA · VS Code · Maven · Claude Code</p>
-                    </div>
-
-                    <div class="skill-box">
-                        <h3>Concepts</h3>
-                        <p>Object-oriented programming · Data structures · Algorithms · Software development</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="artifacts" class="section alt">
-            <div class="container">
-                <p class="eyebrow">03 / TCSS 490</p>
-
-                <div class="section-heading">
-                    <h2>Course artifacts.</h2>
-                    <p>
-                        Five artifacts documenting my progress, projects, and what I learn throughout TCSS 490.
-                    </p>
-                </div>
-
-                <div class="cards">
-
-                    <!-- ARTIFACT 1 -->
-                    <article class="artifact-card featured">
-                        <div class="card-top">
-                            <span class="artifact-number">ARTIFACT 01</span>
-                            <span class="status complete">Completed</span>
-                        </div>
-
-                        <div class="card-symbol" aria-hidden="true">&lt;/&gt;</div>
-
-                        <h3>Personal Portfolio</h3>
-
-                        <p>
-                            A responsive website that introduces me, highlights my skills,
-                            and provides a home for my TCSS 490 projects.
-                        </p>
-
-                        <div class="tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-
-                        <a class="card-link" href="#home">View this portfolio ↗</a>
-                    </article>
-
-                    <!-- ARTIFACT 2 -->
-                    <article class="artifact-card featured">
-                        <div class="card-top">
-                            <span class="artifact-number">ARTIFACT 02</span>
-                            <span class="status complete">Completed</span>
-                        </div>
-
-                        <div class="card-symbol" aria-hidden="true">✓</div>
-
-                        <h3>Simple To-Do List</h3>
-
-                        <p>
-                            A simple web application I built using HTML, CSS, JavaScript,
-                            and Claude Code. It lets me add, complete, and delete tasks
-                            while saving them in my browser.
-                        </p>
-
-                        <p>
-                            I chose this project because I wanted something I could actually
-                            use to keep track of school assignments and everyday tasks.
-                            Using Claude Code helped me learn how to work with an AI coding
-                            tool while using GitHub to manage my project. I also ran into
-                            some issues pushing my code, which helped me understand GitHub
-                            permissions and pull requests better.
-                        </p>
-
-                        <div class="tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>Claude Code</span>
-                        </div>
-
-                        <a class="card-link"
-                           href="https://ymo206.github.io/todo-list/"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            View Live Project ↗
-                        </a>
-
-                        <a class="card-link"
-                           href="https://github.com/ymo206/todo-list"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            View GitHub Repository ↗
-                        </a>
-                    </article>
-
-                    <!-- ARTIFACT 3 -->
-                    <article class="artifact-card featured">
-                        <div class="card-top">
-                            <span class="artifact-number">ARTIFACT 03</span>
-                            <span class="status complete">Completed</span>
-                        </div>
-
-                        <div class="card-symbol" aria-hidden="true">↳</div>
-
-                        <h3>To-Do List: Break Down with Claude</h3>
-
-                        <p>
-                            An extension of my Artifact 2 to-do list. A Break down button
-                            asks Claude to split a big task into smaller steps. I review
-                            the suggestions and choose which ones to add. A small Python
-                            helper runs Claude Code, and plain code checks
-                            every answer before I see it.
-                        </p>
-
-                        <p>
-                            The first real run failed with a blank error. I tracked it
-                            down by running Claude Code by hand: it wasn't logged in, and
-                            my helper was reading its error from the wrong place. Because
-                            Claude's job was kept small and the code checks everything
-                            around it, it was easy to tell whether a problem came from the
-                            model or from my code. I also learned to work around device
-                            limits by running everything in GitHub Codespaces.
-                        </p>
-
-                        <div class="tags">
-                            <span>JavaScript</span>
-                            <span>Python</span>
-                            <span>Claude Code</span>
-                        </div>
-
-                        <a class="card-link"
-                           href="https://github.com/ymo206/todo-list"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            View GitHub Repository ↗
-                        </a>
-                    </article>
-
-                    <!-- ARTIFACT 4 -->
-                    <article class="artifact-card featured">
-                        <div class="card-top">
-                            <span class="artifact-number">ARTIFACT 04</span>
-                            <span class="status planned">Built · Feedback Pending</span>
-                        </div>
-
-                        <div class="card-symbol" aria-hidden="true">▤</div>
-
-                        <h3>Internship Application Tracker</h3>
-
-                        <p>
-                            A web application designed to help students organize their
-                            internship applications. Users can add, edit, and delete
-                            applications, track their application status, search and
-                            filter opportunities, and save their information locally.
-                            The tracker also supports JSON import and export for backups.
-                        </p>
-
-                        <p>
-                            I built and tested this project using HTML, CSS, and JavaScript.
-                            I ran into issues with the application form not opening and
-                            with dashboard statistics losing their styling. Fixing those
-                            problems taught me to check how my HTML, CSS, and JavaScript
-                            work together, and to test changes on the deployed website.
-                            The next step is to collect feedback from someone who could
-                            use the tracker.
-                        </p>
-
-                        <div class="tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>GitHub Pages</span>
-                            <span>Local Storage</span>
-                        </div>
-
-                        <a class="card-link"
-                           href="https://ymo206.github.io/internship-application-tracker/"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            View Live Project ↗
-                        </a>
-
-                        <a class="card-link"
-                           href="https://github.com/ymo206/internship-application-tracker"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            View GitHub Repository ↗
-                        </a>
-                    </article>
-
-                    <!-- ARTIFACT 5 -->
-                    <article class="artifact-card">
-                        <div class="card-top">
-                            <span class="artifact-number">ARTIFACT 05</span>
-                            <span class="status planned">Proposed</span>
-                        </div>
-
-                        <div class="card-symbol" aria-hidden="true">✧</div>
-
-                        <h3>AI-Powered Learning Helper</h3>
-
-                        <p>
-                            I'd like to prototype a learning tool that helps students break
-                            down complex programming topics into smaller study steps.
-                        </p>
-
-                        <div class="tags">
-                            <span>AI</span>
-                            <span>Education</span>
-                        </div>
-
-                        <span class="card-foot">Project idea · Not built yet</span>
-                    </article>
-
-                </div>
-
-                <p class="disclaimer">
-                    Artifacts 1–3 are completed. Artifact 4 is built and being
-                    prepared for user feedback, while Artifact 5 is a proposed idea.
-                </p>
-            </div>
-        </section>
-
-        <section id="contact" class="section contact">
-            <div class="container">
-                <p class="eyebrow">04 / CONTACT</p>
-                <h2>Let's connect.</h2>
-
-                <p>
-                    I'm always interested in learning from other developers
-                    and working on new ideas.
-                </p>
-
-                <a class="button primary"
-                   href="https://github.com/ymo206"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Explore GitHub ↗
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-inner">
-            <span>© <span id="year">2026</span> Yusuf Mohamoud</span>
-            <span>Built for TCSS 490 · UW Tacoma</span>
-            <a href="#home">Back to top ↑</a>
+            <a class="button secondary"
+               href="https://github.com/ymo206"
+               target="_blank"
+               rel="noopener noreferrer">
+                My GitHub
+            </a>
         </div>
-    </footer>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+
+            <p class="section-description">
+                I'm a Computer Science student at UW Tacoma with
+                an interest in software development, web
+                development, and learning new technologies.
+                Through my coursework, I've worked with
+                programming languages such as Java, Python,
+                HTML, CSS, and JavaScript.
+            </p>
+
+            <p class="section-description">
+                I'm continuing to build projects that help me
+                improve my programming skills and gain more
+                experience working with software development
+                tools. I'm also interested in internship
+                opportunities where I can apply what I've learned.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+
+            <p class="section-description">
+                Languages, technologies, and development tools
+                I've worked with through coursework and projects.
+            </p>
+
+            <div class="skills-grid">
+                <span class="skill">Java</span>
+                <span class="skill">Python</span>
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">Git</span>
+                <span class="skill">GitHub</span>
+                <span class="skill">GitHub Pages</span>
+                <span class="skill">Claude Code</span>
+                <span class="skill">Software Development</span>
+                <span class="skill">Debugging</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTIFACTS -->
+    <section id="artifacts">
+        <div class="container">
+            <h2>My Artifacts</h2>
+
+            <p class="section-description">
+                Projects I've worked on throughout TCSS 490.
+                Each artifact focuses on developing a different
+                technical skill or understanding of software development.
+            </p>
+
+            <div class="artifact-grid">
+
+                <!-- ARTIFACT 1 -->
+                <article class="artifact-card featured">
+
+                    <div class="card-top">
+                        <span class="artifact-number">
+                            ARTIFACT 01
+                        </span>
+
+                        <span class="status complete">
+                            Completed
+                        </span>
+                    </div>
+
+                    <div class="card-symbol">⌘</div>
+
+                    <h3>Personal Portfolio Website</h3>
+
+                    <p>
+                        My first artifact was creating this portfolio
+                        website using HTML and CSS. It includes
+                        information about me, my skills, my projects,
+                        and ways to contact me.
+                    </p>
+
+                    <p>
+                        This project helped me get more comfortable
+                        structuring a website and publishing it
+                        through GitHub Pages. I also learned how
+                        to update the website and troubleshoot
+                        deployment issues.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>GitHub Pages</span>
+                    </div>
+
+                    <a class="card-link" href="#home">
+                        View This Portfolio ↗
+                    </a>
+
+                </article>
+
+                <!-- ARTIFACT 2 -->
+                <article class="artifact-card featured">
+
+                    <div class="card-top">
+                        <span class="artifact-number">
+                            ARTIFACT 02
+                        </span>
+
+                        <span class="status complete">
+                            Completed
+                        </span>
+                    </div>
+
+                    <div class="card-symbol">✓</div>
+
+                    <h3>Simple To-Do List</h3>
+
+                    <p>
+                        A simple web application I built using
+                        HTML, CSS, JavaScript, and Claude Code.
+                        It lets me add, complete, and delete tasks
+                        while saving them in my browser.
+                    </p>
+
+                    <p>
+                        I chose this project because I wanted
+                        something I could use to keep track of
+                        school assignments and everyday tasks.
+                        Using Claude Code helped me learn how to
+                        work with an AI coding tool while using
+                        GitHub to manage my project.
+                    </p>
+
+                    <p>
+                        I also ran into issues pushing my code,
+                        which helped me understand GitHub
+                        permissions and pull requests better.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Claude Code</span>
+                    </div>
+
+                    <a class="card-link"
+                       href="https://ymo206.github.io/todo-list/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Live Project ↗
+                    </a>
+
+                    <a class="card-link"
+                       href="https://github.com/ymo206/todo-list"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View GitHub Repository ↗
+                    </a>
+
+                </article>
+
+                <!-- ARTIFACT 3 -->
+                <article class="artifact-card featured">
+
+                    <div class="card-top">
+                        <span class="artifact-number">
+                            ARTIFACT 03
+                        </span>
+
+                        <span class="status complete">
+                            Completed
+                        </span>
+                    </div>
+
+                    <div class="card-symbol">↳</div>
+
+                    <h3>To-Do List: Break Down with Claude</h3>
+
+                    <p>
+                        An extension of my Artifact 2 to-do
+                        list. A Break Down button asks Claude
+                        to split a big task into smaller steps.
+                        I review the suggestions and choose
+                        which ones to add.
+                    </p>
+
+                    <p>
+                        A small Python helper runs Claude Code,
+                        and regular code checks the response
+                        before it gets displayed.
+                    </p>
+
+                    <p>
+                        The first real run failed because
+                        Claude Code wasn't logged in and the
+                        helper wasn't reading the error correctly.
+                        Fixing this helped me understand how
+                        to troubleshoot problems between the
+                        AI model and the rest of the application.
+                        I also used GitHub Codespaces to work
+                        around device limitations.
+                    </p>
+
+                    <div class="tags">
+                        <span>JavaScript</span>
+                        <span>Python</span>
+                        <span>Claude Code</span>
+                    </div>
+
+                    <a class="card-link"
+                       href="https://github.com/ymo206/todo-list"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View GitHub Repository ↗
+                    </a>
+
+                </article>
+
+                <!-- ARTIFACT 4 -->
+                <article class="artifact-card featured">
+
+                    <div class="card-top">
+                        <span class="artifact-number">
+                            ARTIFACT 04
+                        </span>
+
+                        <span class="status complete">
+                            Built · User Feedback Received
+                        </span>
+                    </div>
+
+                    <div class="card-symbol">▤</div>
+
+                    <h3>Internship Application Tracker</h3>
+
+                    <p>
+                        A web application that helps students
+                        organize internship applications.
+                        Users can add and edit applications,
+                        track their statuses and deadlines,
+                        search and filter results, and back
+                        up their information using JSON
+                        import and export. Applications
+                        are saved in the browser.
+                    </p>
+
+                    <p>
+                        I built and tested my Internship Application
+                        Tracker using HTML, CSS, and JavaScript.
+                        I spent time fixing issues with the application
+                        form and dashboard styling to make sure
+                        everything worked correctly.
+                    </p>
+
+                    <p>
+                        I also shared the project with my classmate
+                        Chris, who liked the clean layout and
+                        suggested connecting application dates
+                        to different statuses. I thought that
+                        was a useful idea and something I could
+                        add in a future update.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>GitHub Pages</span>
+                    </div>
+
+                    <a class="card-link"
+                       href="https://ymo206.github.io/internship-application-tracker/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Live Project ↗
+                    </a>
+
+                    <a class="card-link"
+                       href="https://github.com/ymo206/internship-application-tracker"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View GitHub Repository ↗
+                    </a>
+
+                </article>
+
+                <!-- ARTIFACT 5 -->
+                <article class="artifact-card">
+
+                    <div class="card-top">
+                        <span class="artifact-number">
+                            ARTIFACT 05
+                        </span>
+
+                        <span class="status planned">
+                            Proposed
+                        </span>
+                    </div>
+
+                    <div class="card-symbol">✧</div>
+
+                    <h3>AI-Powered Learning Helper</h3>
+
+                    <p>
+                        I'd like to prototype a learning
+                        tool that helps students break down
+                        complex programming topics into
+                        smaller study steps.
+                    </p>
+
+                    <div class="tags">
+                        <span>AI</span>
+                        <span>Education</span>
+                    </div>
+
+                    <span class="card-foot">
+                        Project idea · Not built yet
+                    </span>
+
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+
+            <p class="section-description">
+                I'm interested in connecting with other
+                students, developers, and potential employers.
+                Feel free to reach out or check out my projects.
+            </p>
+
+            <a class="button"
+               href="https://github.com/ymo206"
+               target="_blank"
+               rel="noopener noreferrer">
+                Visit My GitHub
+            </a>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>
+            © 2026 Yusuf Mohamoud |
+            University of Washington Tacoma
+        </p>
+    </div>
+</footer>
 
 </body>
 </html>
